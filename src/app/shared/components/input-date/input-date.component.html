@@ -1,0 +1,11 @@
+<!-- <div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''"> {{label}} </label>
+    <input [type]="type" (focus)="focused = true" (blur)="onBlur($event)" />
+</div> -->
+
+
+<div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''"> {{label}} </label>
+    <input id="datePickerId" (blur)="onBlur($event)" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate">
+    <i class="fa-regular fa-calendar puntero " (click)="d.toggle()" style="font-size: 20px; color: #0ca789;  float: right; position: relative; z-index: 10;"></i>
+</div>
