@@ -6,6 +6,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ]
 })
 export class RegistroModule { }

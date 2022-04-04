@@ -5,6 +5,7 @@ import { InputDateComponent } from './components/input-date/input-date.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbDate, NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateCustomParserFormatter } from './components/formatter/NgbDateCustomParserFormatter ';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,7 +17,8 @@ import { NgbDateCustomParserFormatter } from './components/formatter/NgbDateCust
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   exports: [
     InputComponent,

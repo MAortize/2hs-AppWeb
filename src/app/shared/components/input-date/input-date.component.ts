@@ -36,7 +36,6 @@ export class InputDateComponent  {
 
   onBlur(event: any) {
     const value = event.target.value;
-
     if (value) {
       this.focused = false;
     }
