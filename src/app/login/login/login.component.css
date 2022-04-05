@@ -1,0 +1,56 @@
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    ;
+}
+
+.wrap-login100 {
+    width: 350px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card {
+    /* border-color: #0ca789; */
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #666565, 0px 0px 20px #666565;
+    /* width: 700px; */
+    background-color: #fff;
+}
+
+.textoSmall {
+    color: red;
+    margin: 1rem;
+    font-size: 12px;
+}
+
+.btn-success {
+    background-color: #0ca789;
+    border-color: #0ca789;
+}
+
+.puntero {
+    cursor: pointer;
+}
+
+.container {
+    padding-top: 4em;
+}
+
+::ng-deep .tooltip-inner {
+    width: 400px;
+    background-color: black;
+}

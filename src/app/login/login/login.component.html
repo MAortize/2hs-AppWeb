@@ -1,1 +1,71 @@
-<p>login works!</p>
+<!-- <div class="container-login100">
+    <div class="wrap-login100">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img class="card-img-top" src="../../../assets/icons/2hsPNG.png" alt="Card image cap">
+                    <p class="text-center text-p fs-4">Unetenos</p>
+                    <div class="card-body">
+                        <form autocomplete="off" #form="ngForm">
+                            <div class="row">
+                                <div class="col-6">
+                                    <app-input [class.is-invalid]="nombre.invalid" ngbTooltip="El nombre debe ser obligatorio" ngDefaultControl name="nombre" [(ngModel)]="usuario.nombre" label="Nombre" required #nombre="ngModel" pattern="^[a-zA-Z]+$"></app-input>
+                                    <app-input-date [class.is-invalid]="fechaNacimiento.invalid" name="fechaNacimiento" ngbTooltip="La fecha de nacimiento es obligatoria" label="Fecha de nacimiento" ngDefaultControl required [(ngModel)]="usuario.fechaNacimiento" #fechaNacimiento="ngModel"></app-input-date>
+                                    <app-input [class.is-invalid]="password.invalid" ngbTooltip="La contraseña debe ser obligatoria" type="password" ngDefaultControl name="password" [(ngModel)]="usuario.password" label="Contraseña" minlength="7" required #password="ngModel"></app-input>
+                                </div>
+                                <div class="col-6 ">
+                                    <app-input [class.is-invalid]="apellido.invalid" ngbTooltip="El apellido debe ser obligatorio" ngDefaultControl name="apellido" [(ngModel)]="usuario.apellido" required label="Apellido" #apellido="ngModel" pattern="^[a-zA-Z]+$"></app-input>
+                                    <app-input [class.is-invalid]="email.invalid" ngbTooltip="El email debe ser obligatorio" ngDefaultControl name="email" [(ngModel)]="usuario.email" label="Correo Electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel"></app-input>
+                                    <app-input [class.is-invalid]="passwordConfirm.invalid" ngbTooltip="La contraseña debe ser obligatoria" type="password" ngDefaultControl name="passwordConfirm" [(ngModel)]="usuario.passwordConfirm" label="Contraseña" required minlength="7" required #passwordConfirm="ngModel"></app-input>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 ">
+                                <button [disabled]="form.invalid" class="btn btn-success" type="submit">¡Registrate!</button>
+                            </div>
+                            <a class="text-end link-success" href="# ">¿Ya tienes cuenta? Inicia Sesion</a>
+                            <div class="text-center ">
+                                <i class="bi bi-instagram puntero " style="font-size: 2rem; color: blueviolet "></i>
+                                <div class="vr " style="width: 1rem; color: transparent; "></div>
+                                <i class="bi bi-facebook puntero " style="font-size: 2rem; color: blue "></i>
+                                <div class="vr " style="width: 1rem; color: transparent; "></div>
+                                <i class="bi bi-google puntero " style="font-size: 2rem; color: red "></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container-login100">
+    <div class="wrap-login100">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img class="card-img-top" src="../../../assets/icons/2hsPNG.png" alt="Card image cap">
+                    <p class="text-center text-p fs-4">Iniciar Sesion</p>
+                    <div class="card-body">
+                        <form autocomplete="off" (submit)="login(form)" #form="ngForm">
+                            <div class="row">
+                                <div class="col">
+                                    <app-input [class.is-invalid]="email.invalid" ngbTooltip="El email debe ser obligatorio" ngDefaultControl label="Correo Electronico" name="email" [(ngModel)]="usuario.email" required pattern=" [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$ " #email="ngModel"></app-input>
+                                    <app-input [class.is-invalid]="password.invalid" ngbTooltip="La contraseña debe ser obligatoria" type="password" ngDefaultControl name="password" [(ngModel)]="usuario.password" label="Contraseña" minlength="7" required #password="ngModel"></app-input>
+                                </div>
+                                <div class="d-grid gap-2 ">
+                                    <button [disabled]="!form.valid" class="btn btn-success" type="submit">¡Inicia Sesion!</button>
+                                </div>
+                                <div class="text-center ">
+                                    <i class="bi bi-instagram puntero " style="font-size: 2rem; color: blueviolet "></i>
+                                    <div class="vr " style="width: 1rem; color: transparent; "></div>
+                                    <i class="bi bi-facebook puntero " style="font-size: 2rem; color: blue "></i>
+                                    <div class="vr " style="width: 1rem; color: transparent; "></div>
+                                    <i class="bi bi-google puntero " style="font-size: 2rem; color: red "></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

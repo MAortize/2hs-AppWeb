@@ -88,7 +88,7 @@ export class AuthService {
 
   leerToken(){
     if (localStorage.getItem('token')) {
-      this.userToken!=localStorage.getItem('token');
+      this.userToken = localStorage.getItem('token')!;
     }else{
       this.userToken='';
     }
