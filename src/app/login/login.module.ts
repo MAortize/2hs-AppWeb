@@ -8,8 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider,FacebookLoginProvider } from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig  } from "@abacritt/angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider  } from "@abacritt/angularx-social-login";
+
+
+
+import { from } from 'rxjs';
 
 
 @NgModule({
