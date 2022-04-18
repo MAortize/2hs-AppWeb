@@ -6,23 +6,28 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbDate, NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateCustomParserFormatter } from './components/formatter/NgbDateCustomParserFormatter ';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
     InputComponent,
-    InputDateComponent
+    InputDateComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     InputComponent,
-    InputDateComponent    
+    InputDateComponent ,
+    SidebarComponent   
   ],
   providers: [
     {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}

@@ -46,7 +46,7 @@ export class RegistroComponent implements OnInit {
       // if (this.recordar) {
       //   localStorage.setItem('email',this.usuario.email);
       // }
-      // this.router.navigateByUrl('home')
+      this.router.navigateByUrl('home')
       Swal.fire({
         allowOutsideClick: false,
         icon: 'success',

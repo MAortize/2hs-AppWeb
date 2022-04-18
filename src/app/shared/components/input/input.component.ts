@@ -10,7 +10,6 @@ export class InputComponent {
   @Input() label!: string;
   @Input() type = 'text'; //set default type be text
   @Input() idName!: string;
-  @Input() placeholder!: string;
 
 
   focused!: boolean;

@@ -1,0 +1,21 @@
+body > .container {margin-top: 60px}
+.navbar-brand {height: auto; padding: 0;}
+
+.puntero {
+    cursor: pointer;
+}
+
+.img-symbol {
+    width: 100px;
+    max-height: 100%;
+    margin-left: 100px;
+}
+.navbar-inverse {
+    background-color: #ffc400 !important;
+    position: fixed;
+    top: 0; 
+    right: 0; 
+    left: 0;
+    z-index: 10; 
+    box-shadow: 0 0 2px 2px #1a1a1a;
+}

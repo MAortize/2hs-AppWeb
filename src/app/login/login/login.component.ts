@@ -37,10 +37,6 @@ export class LoginComponent implements OnInit {
       (resp) => {
         console.log(resp);
         Swal.close();
-
-
-        
-
         this.router.navigateByUrl('home');
       },
       (err) => {
