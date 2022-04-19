@@ -19,3 +19,9 @@ body > .container {margin-top: 60px}
     z-index: 10; 
     box-shadow: 0 0 2px 2px #1a1a1a;
 }
+
+.border-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

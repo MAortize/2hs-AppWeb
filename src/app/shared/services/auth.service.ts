@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Usuario } from '../models/Usuario';
 import { map } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, OAuthCredential } from 'firebase/auth';
+import { Router } from '@angular/router';
+
+
 
 
 @Injectable({
@@ -11,6 +16,9 @@ export class AuthService {
 
   private url = 'https://identitytoolkit.googleapis.com/v1/'
   private apikey='AIzaSyBOg4fCgVOYr5rVSoWyd3qc-cPBgijX3Ag'
+  
+  @Output() photo!: string;
+  @Output() loggedIn!: boolean;
 
   private userToken!:string;
   
@@ -20,10 +28,41 @@ export class AuthService {
   //Entrar con usuario
   ///https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
-  constructor(private http: HttpClient) { 
-    this.leerToken();
+  constructor(private http: HttpClient, private afAuth: AngularFireAuth, private router: Router) { 
+    this.leerToken();    
   }
 
+  googleAuth() {
+    return this.authLogin(new GoogleAuthProvider());
+  }
+
+  logOut(){
+    this.afAuth.signOut()
+  }
+
+  facebookAuth(){
+    return this.authLogin(new FacebookAuthProvider());
+  }
+
+  //Auth logic to run auth providers
+  async authLogin(provider: any) {
+    try {
+      const result = await this.afAuth
+        .signInWithPopup(provider);
+      const credential = result.credential as OAuthCredential;
+      console.log(result.credential);
+      if (credential.providerId == 'google.com') {
+        this.photo = result.user?.photoURL!;
+      } else if (credential.providerId == 'facebook.com') {
+        this.photo = result.user?.photoURL + "?height=500&access_token=" + credential.accessToken;
+      }
+      this.loggedIn = true;
+      console.log('You have been successfully logged in!');
+      this.router.navigateByUrl('/home');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   logout(){
     localStorage.removeItem('token');

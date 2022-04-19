@@ -26,14 +26,11 @@
                 <li><a href="#" class="dropdown-item text-secondary pl-4 p-2"><i
                             class="fa-solid fa-clapperboard fs-4"></i> Clips</a></li>
                 <div class="dropdown-divider"></div>
-                <li class="nav-item dropdown w-100">
-                    <a href="#" class="nav-link dropdown-toggle text-secondary pl-4 p-2"
+                <li class="nav-item w-100">
+                    <a href="#" class="nav-link text-secondary pl-4 p-2"
                         id="secondDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"><i class="fa-solid fa-icons fs-4"></i>
                         Multimedia</a>
-                    <ul class="dropdown-menu W-100" aria-controls="secondDropdown" aria-labelledby="secondDropdown">
-                        <li><a class="dropdown-item text-secondary pl-4 p-2" href="">XD</a></li>
-                    </ul>
                 </li>
             </ul>
         </li>
@@ -47,7 +44,7 @@
                 <li><a href="#" class="dropdown-item text-secondary pl-4 p-2"><i class="fa-solid fa-user-gear fs-4"></i>
                         Configuración</a></li>
                 <div class="dropdown-divider"></div>
-                <li><a href="#" class="dropdown-item text-secondary pl-4 p-2"><i
+                <li><a (click)="logOut()" href="#" class="dropdown-item text-secondary pl-4 p-2" role="button" [hidden]="!loggedIn"><i
                             class="fa-solid fa-right-from-bracket fs-4"></i> Cerrar Sesión</a></li>
             </ul>
         </li>

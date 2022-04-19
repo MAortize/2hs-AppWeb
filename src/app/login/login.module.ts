@@ -8,10 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SocialLoginModule, SocialAuthServiceConfig  } from "@abacritt/angularx-social-login";
-import { GoogleLoginProvider, FacebookLoginProvider  } from "@abacritt/angularx-social-login";
-
-
 
 import { from } from 'rxjs';
 
@@ -27,31 +23,8 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule,
-    SocialLoginModule
+    HttpClientModule
   ],
-  providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              'clientId'
-            )
-          },
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('clientId')
-          }
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
-      } as SocialAuthServiceConfig,
-    }
-  ],
+  providers: [],
 })
 export class LoginModule { }

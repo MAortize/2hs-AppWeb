@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AnimationState, fade } from '../../shared/components/animations/animations';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { AnimationState, fade } from '../../shared/components/animations/animati
   styleUrls: ['./home.component.css'],
   animations: fade
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
 
-  path : string = '../../../assets/icons/'
+  path : string = '../../../assets/icons/';
+  photo!: string;
+  loggedIn: boolean = false;
+  
 
   arrayImages = [
     `${this.path}image1.jpeg`,
@@ -22,7 +26,13 @@ export class HomeComponent{
   image : string = `${this.path}image1.jpeg`;
 
   
-  constructor() { }
+  constructor(private auth: AuthService) { }
+
+  ngOnInit(): void {
+    this.photo=this.auth.photo
+    
+    this.loggedIn=this.auth.loggedIn
+  }
   
   state = AnimationState.IN;
   private count: number = 0;

@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './components/input/input.component';
 import { InputDateComponent } from './components/input-date/input-date.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbDate, NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateCustomParserFormatter } from './components/formatter/NgbDateCustomParserFormatter ';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
-
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {RouterModule} from '@angular/router';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   exports: [
     InputComponent,

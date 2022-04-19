@@ -12,6 +12,8 @@ import { Usuario } from '../../shared/models/Usuario';
 })
 export class LoginComponent implements OnInit {
   usuario!: Usuario;
+  nombre!: string;
+  
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -20,6 +22,14 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('email')) {
       this.usuario.email = localStorage.getItem('email')!;
     }
+  }
+  
+  logInWithGoogle(){
+    this.auth.googleAuth()
+  }
+  
+  logInWithFacebook(){
+    this.auth.facebookAuth()
   }
 
   login(form: NgForm) {

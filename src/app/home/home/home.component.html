@@ -5,6 +5,10 @@
             <i (click)="toggle()" class="fa-solid fa-bars fs-3 puntero ml-1"></i>
         </div>
     </div>
+    <div class="navbar-nav ml-auto">
+        <i *ngIf="!loggedIn" class="fa-solid fa-user fs-3"></i>
+        <img *ngIf="loggedIn == true" class="border-img" src="{{photo}}" alt="">
+    </div>
 </nav>
 <div class="container">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
