@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnimationState, fade } from '../../shared/components/animations/animations';
-import { AuthService } from '../../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,7 @@ import { AuthService } from '../../shared/services/auth.service';
 export class HomeComponent implements OnInit{
 
   path : string = '../../../assets/icons/';
-  photo!: string;
-  loggedIn: boolean = false;
+  
   
 
   arrayImages = [
@@ -26,12 +25,9 @@ export class HomeComponent implements OnInit{
   image : string = `${this.path}image1.jpeg`;
 
   
-  constructor(private auth: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.photo=this.auth.photo
-    
-    this.loggedIn=this.auth.loggedIn
   }
   
   state = AnimationState.IN;
@@ -55,12 +51,7 @@ export class HomeComponent implements OnInit{
     this.count++;
   }
 
-  toggle() {
-    var sidebar =  document.querySelector("#sidebar")
-    var container = document.querySelector(".my-container")
-    sidebar?.classList.toggle("active-nav")
-    container?.classList.toggle("active-cont")
-  }
+  
 
   
 

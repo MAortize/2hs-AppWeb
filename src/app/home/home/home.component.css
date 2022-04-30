@@ -1,27 +1,19 @@
-body > .container {margin-top: 60px}
-.navbar-brand {height: auto; padding: 0;}
-
-.puntero {
-    cursor: pointer;
-}
-
-.img-symbol {
-    width: 100px;
-    max-height: 100%;
-    margin-left: 100px;
-}
-.navbar-inverse {
-    background-color: #ffc400 !important;
-    position: fixed;
-    top: 0; 
-    right: 0; 
-    left: 0;
-    z-index: 10; 
-    box-shadow: 0 0 2px 2px #1a1a1a;
-}
-
-.border-img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}
+#carouselId .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 100vh;
+    width: 520vh;
+  }
+  
+  #carouselId .carousel-item::before {
+    content: "";
+    background-image:
+      linear-gradient(
+        to bottom,
+        transparent, rgba(0,0,0,0.5)
+      );
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }

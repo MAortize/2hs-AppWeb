@@ -1,0 +1,34 @@
+<!-- <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="Modal2" aria-hidden="true"> -->
+<!-- <div class="modal-dialog modal-dialog-scrollable" role="document"> -->
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Modal with Scrolling Content</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">xxx</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let item of listaCompra;" class="list-group-item">
+                {{item.data.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info btn-md">Save</button>
+    </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+<!-- 
+<div class="modal-header">
+    <h4 class="modal-title">Hi there!</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <p>Hello!</p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div> -->

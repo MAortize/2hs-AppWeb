@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AnimationState, fade } from '../animations/animations';
 
@@ -9,15 +9,15 @@ import { AnimationState, fade } from '../animations/animations';
 })
 export class SidebarComponent implements OnInit {
 
-  loggedIn: boolean = false
 
-  constructor(private auth: AuthService) { }
+  @Input() loggedIn!: boolean;
+
+  constructor(public auth: AuthService) { }
 
 
 
   ngOnInit(): void {
     this.loggedIn=this.auth.loggedIn
-    
   }
 
   logOut(){

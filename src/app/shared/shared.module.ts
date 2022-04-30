@@ -11,13 +11,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
   declarations: [
     InputComponent,
     InputDateComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavbarComponent,
+    CardComponent,
+    FooterComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +38,11 @@ import { environment } from 'src/environments/environment';
   ],
   exports: [
     InputComponent,
-    InputDateComponent ,
-    SidebarComponent   
+    InputDateComponent,
+    SidebarComponent,
+    NavbarComponent,
+    FooterComponent,
+    ShoppingCartComponent
   ],
   providers: [
     {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}

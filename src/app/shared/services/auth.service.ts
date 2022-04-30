@@ -29,7 +29,8 @@ export class AuthService {
   ///https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth, private router: Router) { 
-    this.leerToken();    
+    this.leerToken(); 
+       
   }
 
   googleAuth() {
@@ -57,6 +58,7 @@ export class AuthService {
         this.photo = result.user?.photoURL + "?height=500&access_token=" + credential.accessToken;
       }
       this.loggedIn = true;
+      this.guardarToken(credential.accessToken!)
       console.log('You have been successfully logged in!');
       this.router.navigateByUrl('/home');
     } catch (error) {
