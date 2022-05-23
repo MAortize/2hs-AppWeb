@@ -9,10 +9,12 @@
         <a [routerLink]="'home'"><img src="../../../assets/icons/2hsPNG.png" class="img-symbol puntero" alt=""></a>
     </div>
     <div class="navbar-nav ms-auto">
-        <i *ngIf="!auth.loggedIn" class="fa-solid fa-user fs-4" style="color: #fff;"></i>
-        <img *ngIf="auth.loggedIn == true" class="border-img" src="{{auth.photo}}" alt="">
-        <!-- <i class="fa-solid fa-cart-shopping ms-3 fs-4" role="button" data-toggle="modal" data-target="#Modal2" style="color: #fff;"></i> -->
-        <i role="button" class="fa-solid fa-cart-shopping ms-3 fs-4" (click)="openModal()" style="color: #fff;"></i>
+        <i *ngIf="!loggedIn" class="fa-solid fa-user fs-4" style="color: #fff;"></i>
+        <img *ngIf="loggedIn" class="border-img" src="{{photo}}" alt="">
+       
+        <i class="fa-solid fa-cart-shopping ms-3 fs-4" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: #fff;"></i>
+        <!-- <i role="button" class="fa-solid fa-cart-shopping ms-3 fs-4 puntero" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: #fff;" ></i> -->
     </div>
 </nav>
+<app-shopping-cart></app-shopping-cart>
 

@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
+
 @NgModule({
   declarations: [
     InputComponent,
@@ -25,7 +26,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     NavbarComponent,
     CardComponent,
     FooterComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +43,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
   ],
   providers: [
     {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}

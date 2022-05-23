@@ -1,34 +1,41 @@
-<!-- <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="Modal2" aria-hidden="true"> -->
-<!-- <div class="modal-dialog modal-dialog-scrollable" role="document"> -->
-<div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="ModalLabel">Modal with Scrolling Content</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">xxx</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <ul class="list-group list-group-flush">
-            <li *ngFor="let item of listaCompra;" class="list-group-item">
-                {{item.data.title}}
-            </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info btn-md">Save</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush">
+                    <li *ngFor="let item of listaCompra;" class="list-group-item" [hidden]="item.id == 0">
+                        <div class="row">
+                            <div class="content">
+                                <div class="col-md-auto">{{item.id}}</div>
+                                <div class="col-md-auto"><img class="img-sizing" [src]="item.img"
+                                        alt=""><a>{{item.title}}</a></div>
+                                <div class="flex-colums">
+                                    <div class="col-md-auto">
+                                        <button (click)="insertOrUpdate(item)" class="btn btn-outline-success"><i
+                                                class="fa-regular fa-square-plus fs-3"></i></button>                        
+                                        <button (click)="deleteElement(item)" class="btn btn-outline-danger"><i
+                                                class="fa-regular fa-square-minus fs-3"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <hr>
+                    <strong>Total Productos: {{count}}</strong>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info">Confirmar compra</button>
+                <button (click)="cleanAll()" class="btn btn-outline-primary">
+                    Vaciar carrito <i class="fa-regular fa-trash-can fs-4"></i>
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
     </div>
 </div>
-<!-- </div> -->
-<!-- </div> -->
-<!-- 
-<div class="modal-header">
-    <h4 class="modal-title">Hi there!</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
-</div>
-<div class="modal-body">
-    <p>Hello!</p>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-</div> -->

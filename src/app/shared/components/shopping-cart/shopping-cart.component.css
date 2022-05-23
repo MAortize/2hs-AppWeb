@@ -1,0 +1,21 @@
+.img-sizing{
+    width: 100px;
+    height: auto;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+}
+
+.flex-colums{
+    flex-direction: column;
+}
+
+.btn {
+    margin: 8px;
+}
+
+a {
+    margin-left: 10px;
+}

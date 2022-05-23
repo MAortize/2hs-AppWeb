@@ -39,12 +39,12 @@
             <a href="#" class="nav-link dropdown-toggle text-secondary pl-4 p-2" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user fs-4"></i> Perfil</a>
             <ul class="dropdown-menu w-100" aria-controls="navbarDropdown" aria-labelledby="navbarDropdown">
-                <li><a [routerLink]="['/login']" class="dropdown-item text-secondary pl-4 p-2" [hidden]="auth.loggedIn"><i
+                <li><a [routerLink]="['/login']" href="#" class="dropdown-item text-secondary pl-4 p-2" [hidden]="auth.loggedIn"><i
                             class="fa-solid fa-right-to-bracket fs-4"></i> Iniciar Sesión</a></li>
                 <li><a href="#" class="dropdown-item text-secondary pl-4 p-2"><i class="fa-solid fa-user-gear fs-4"></i>
                         Configuración</a></li>
                 <div class="dropdown-divider"></div>
-                <li><a (click)="logOut()" href="#" class="dropdown-item text-secondary pl-4 p-2" role="button" [hidden]="!auth.loggedIn"><i
+                <li><a (click)="logOut()" href="#" class="dropdown-item text-secondary pl-4 p-2" role="button" [hidden]="!loggedIn"><i
                             class="fa-solid fa-right-from-bracket fs-4"></i> Cerrar Sesión</a></li>
             </ul>
         </li>

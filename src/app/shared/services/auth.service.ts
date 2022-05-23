@@ -15,33 +15,33 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private url = 'https://identitytoolkit.googleapis.com/v1/'
-  private apikey='AIzaSyBOg4fCgVOYr5rVSoWyd3qc-cPBgijX3Ag'
-  
+  private apikey = 'AIzaSyBOg4fCgVOYr5rVSoWyd3qc-cPBgijX3Ag'
+
   @Output() photo!: string;
   @Output() loggedIn!: boolean;
 
-  private userToken!:string;
-  
+  private userToken!: string;
+
   //Crear un nuevo usuario
   //https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
-  
+
   //Entrar con usuario
   ///https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
-  constructor(private http: HttpClient, private afAuth: AngularFireAuth, private router: Router) { 
-    this.leerToken(); 
-       
+  constructor(private http: HttpClient, private afAuth: AngularFireAuth, private router: Router) {
+    this.leerToken();
+
   }
 
   googleAuth() {
     return this.authLogin(new GoogleAuthProvider());
   }
 
-  logOut(){
+  logOut() {
     this.afAuth.signOut()
   }
 
-  facebookAuth(){
+  facebookAuth() {
     return this.authLogin(new FacebookAuthProvider());
   }
 
@@ -51,62 +51,59 @@ export class AuthService {
       const result = await this.afAuth
         .signInWithPopup(provider);
       const credential = result.credential as OAuthCredential;
-      console.log(result.credential);
       if (credential.providerId == 'google.com') {
         this.photo = result.user?.photoURL!;
       } else if (credential.providerId == 'facebook.com') {
         this.photo = result.user?.photoURL + "?height=500&access_token=" + credential.accessToken;
-      }
-      this.loggedIn = true;
-      this.guardarToken(credential.accessToken!)
+      }    
       console.log('You have been successfully logged in!');
-      this.router.navigateByUrl('/home');
+      this.guardarTokenSocials(credential.accessToken!, this.photo)      
     } catch (error) {
       console.log(error);
     }
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
   }
 
-  login(usuario:Usuario){
-    const authData={
-      email:usuario.email,
-      password:usuario.password,
-      returnSecureToken:true
+  login(usuario: Usuario) {
+    const authData = {
+      email: usuario.email,
+      password: usuario.password,
+      returnSecureToken: true
     };
 
     return this.http.post(
       `${this.url}accounts:signInWithPassword?key=${this.apikey}`,
       authData
     ).pipe(
-      map((resp : any)=>{
+      map((resp: any) => {
         console.log("entro en el map del rxjs");
-        
+
         this.guardarToken(resp['idToken']);
         return resp;
       })
     );
 
-    
+
   }
 
-  registrarNuevoUsuario(usuario:Usuario){ 
+  registrarNuevoUsuario(usuario: Usuario) {
 
-    const authData={
-      email:usuario.email,
-      password:usuario.password,
-      returnSecureToken:true
+    const authData = {
+      email: usuario.email,
+      password: usuario.password,
+      returnSecureToken: true
     };
 
     return this.http.post(
       `${this.url}accounts:signUp?key=${this.apikey}`,
       authData
     ).pipe(
-      map((resp : any)=>{
+      map((resp: any) => {
         console.log("entro en el map del rxjs");
-        
+
         this.guardarToken(resp['idToken']);
         return resp;
       })
@@ -114,10 +111,26 @@ export class AuthService {
 
   }
 
-  private guardarToken(idToken:string){
+  private guardarTokenSocials(idToken: string, photo: string) {
+    this.userToken = idToken;
+    localStorage.setItem('token', idToken)
+    localStorage.setItem('urlPhoto', photo)
+    this.router.navigateByUrl('home').then(()=>{
+      window.location.reload()
+    })
+    let hoy = new Date();
+    hoy.setSeconds(3600);
+    localStorage.setItem('expira', hoy.getTime().toString());
+  }
 
-    this.userToken=idToken;
-    localStorage.setItem('token',idToken)
+  private guardarToken(idToken: string) {
+
+    this.userToken = idToken;
+    localStorage.setItem('token', idToken)
+    console.log(this.userToken);
+    console.log('Este es el token entrante', idToken);
+
+
 
     let hoy = new Date();
     hoy.setSeconds(3600);
@@ -127,32 +140,35 @@ export class AuthService {
 
   }
 
-  leerToken(){
+  leerToken() {
     if (localStorage.getItem('token')) {
       this.userToken = localStorage.getItem('token')!;
-    }else{
-      this.userToken='';
+    } else {
+      this.userToken = '';
     }
 
     return this.userToken;
   }
 
-  estaAutenticado(): boolean{
+  estaAutenticado(): boolean {
 
-    if (this.userToken.length<2) {
+    if (this.userToken.length < 2) {
+      this.loggedIn = false;
       return false
     }
-      
+
     const expira = Number(localStorage.getItem('expira'));
     const hoy = new Date();
 
     hoy.setTime(expira);
 
-    if (hoy>new Date()) {
+    if (hoy > new Date()) {
+      this.loggedIn = true;
       return true;
-    }else{
+    } else {
+      this.loggedIn = false;
       return false
     }
-    
+
   }
 }

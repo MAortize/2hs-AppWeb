@@ -17,11 +17,11 @@ export class SidebarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.loggedIn=this.auth.loggedIn
+    this.loggedIn=this.auth.estaAutenticado()
   }
 
   logOut(){
-    this.auth.logOut()
+    this.auth.logout()
   }
   
   toggle() {
