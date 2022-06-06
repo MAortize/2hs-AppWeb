@@ -14,24 +14,27 @@ export class HombreComponent implements OnInit {
     {
       id: '1',
       img: '../../../assets/products-images/hombre/IMG_7364.jpg',
-      title: 'Long Beach - $79.000'
+      title: 'Long Beach Men - $79.000',
+      price : 79.000
     },
     {
       id: '1',
       img: '../../../assets/products-images/hombre/IMG_7406.jpg',
-      title: 'Juicy - $79.000'
+      title: 'Juicy Men - $79.000',
+      price : 79.000
     },
     {
       id: '1',
       img: '../../../assets/products-images/hombre/IMG_7529.jpg',
-      title: 'Tupac - $79.000'
+      title: 'Tupac Men - $79.000',
+      price : 79.000
     },
     {
       id: '1',
       img: '../../../assets/products-images/hombre/IMG_7556.jpg',
-      title: 'Hova - $79.000'
+      title: 'Hova Men - $79.000',
+      price : 79.000
     },
-
   ]
 
   constructor(private transfer: DataTransferService) { }

@@ -19,6 +19,9 @@ const routes: Routes = [
   { 
     path: 'clips', loadChildren: () => import('./clips/clips.module').then(m => m.ClipsModule)
   },
+  { 
+    path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)
+  },
   
 ];
 

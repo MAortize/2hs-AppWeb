@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
   }
 
   login(usuario: Usuario) {
@@ -113,20 +113,20 @@ export class AuthService {
 
   private guardarTokenSocials(idToken: string, photo: string) {
     this.userToken = idToken;
-    localStorage.setItem('token', idToken)
-    localStorage.setItem('urlPhoto', photo)
+    sessionStorage.setItem('token', idToken)
+    sessionStorage.setItem('urlPhoto', photo)
     this.router.navigateByUrl('home').then(()=>{
       window.location.reload()
     })
     let hoy = new Date();
     hoy.setSeconds(3600);
-    localStorage.setItem('expira', hoy.getTime().toString());
+    sessionStorage.setItem('expira', hoy.getTime().toString());
   }
 
   private guardarToken(idToken: string) {
 
     this.userToken = idToken;
-    localStorage.setItem('token', idToken)
+    sessionStorage.setItem('token', idToken)
     console.log(this.userToken);
     console.log('Este es el token entrante', idToken);
 
@@ -135,14 +135,14 @@ export class AuthService {
     let hoy = new Date();
     hoy.setSeconds(3600);
 
-    localStorage.setItem('expira', hoy.getTime().toString());
+    sessionStorage.setItem('expira', hoy.getTime().toString());
 
 
   }
 
   leerToken() {
-    if (localStorage.getItem('token')) {
-      this.userToken = localStorage.getItem('token')!;
+    if (sessionStorage.getItem('token')) {
+      this.userToken = sessionStorage.getItem('token')!;
     } else {
       this.userToken = '';
     }
@@ -157,7 +157,7 @@ export class AuthService {
       return false
     }
 
-    const expira = Number(localStorage.getItem('expira'));
+    const expira = Number(sessionStorage.getItem('expira'));
     const hoy = new Date();
 
     hoy.setTime(expira);

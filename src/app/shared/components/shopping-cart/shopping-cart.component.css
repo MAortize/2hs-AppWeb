@@ -1,21 +1,39 @@
-.img-sizing{
+
+.img-sizing {
     width: 100px;
     height: auto;
 }
 
-.content{
+.content {
     display: flex;
     align-items: center;
 }
 
-.flex-colums{
+.flex-colums {
     flex-direction: column;
+    justify-content: end;
 }
 
 .btn {
-    margin: 8px;
+    margin: 4px;
 }
 
 a {
-    margin-left: 10px;
+    margin-left: 6px;
+}
+
+.row>* {
+    padding: 0;
+}
+
+.list-group-item {
+    /* padding: 1; */
+}
+
+
+
+
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
 }

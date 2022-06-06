@@ -8,9 +8,9 @@
             </div>
             <div class="modal-body">
                 <ul class="list-group list-group-flush">
-                    <li *ngFor="let item of listaCompra;" class="list-group-item" [hidden]="item.id == 0">
+                    <li *ngFor="let item of listaCompra;" class="list-group-item">
                         <div class="row">
-                            <div class="content">
+                            <div *ngIf="item.id!=0" class="content">
                                 <div class="col-md-auto">{{item.id}}</div>
                                 <div class="col-md-auto"><img class="img-sizing" [src]="item.img"
                                         alt=""><a>{{item.title}}</a></div>
@@ -28,8 +28,8 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info">Confirmar compra</button>
-                <button (click)="cleanAll()" class="btn btn-outline-primary">
+                <button (click)="goToPay()" type="button" class="btn btn-info" [disabled]="listaCompra.length===0">Confirmar compra</button>
+                <button (click)="cleanAll()" class="btn btn-outline-primary" [disabled]="listaCompra.length===0">
                     Vaciar carrito <i class="fa-regular fa-trash-can fs-4"></i>
                 </button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>

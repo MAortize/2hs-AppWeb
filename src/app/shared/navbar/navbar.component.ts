@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(public auth: AuthService, private transfer: DataTransferService) {
 
-    this.photo = localStorage.getItem('urlPhoto')!
+    this.photo = sessionStorage.getItem('urlPhoto')!
     console.log(this.auth.photo);    
     this.loggedIn = this.auth.estaAutenticado()
     console.log(this.loggedIn);
