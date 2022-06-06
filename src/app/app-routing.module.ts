@@ -19,6 +19,12 @@ const routes: Routes = [
   { 
     path: 'clips', loadChildren: () => import('./clips/clips.module').then(m => m.ClipsModule)
   },
+  { 
+    path: 'multimedia', loadChildren: () => import('./multimedia/multimedia.module').then(m => m.MultimediaModule)
+  },
+  { 
+    path: 'confirmar-hombre/:id', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  },
   
 ];
 

@@ -1,0 +1,36 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Personalización de producto</h5>
+        <button (click)="close()" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="image-section">
+            <img src="{{product?.image}}" alt="">
+        </div>
+
+        <div class="product-custom">
+            <select name="heigh">
+                <option selected disabled hidden value="">Seleccione el largo de la camiseta</option>
+                <option value="75">75 cm</option>
+                <option value="80">80 cm</option>
+                <option value="85">85 cm</option>
+            </select>
+        </div>
+        <div class="product-custom">
+            <select name="mangas">
+                <option selected disabled hidden value="">Seleccione el tamaño de las mangas</option>
+                <option value="20">20 cm</option>
+                <option value="22">22 cm</option>
+                <option value="24">24 cm</option>
+            </select>
+        </div>
+
+        
+    </div>
+    <div class="modal-footer">
+        <button (click)="close()" type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-info btn-md">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "image":"../../../assets/products-images/hombre/IMG_7364.jpg",
+        "name":"Long Beach Snoop Dogg",
+        "category":"Hombre",
+        "description":"Camiseta oversize para hombre, 100% algodón y producido en Colombia, diseño Long Beach en representación del rapero estadounidense Snoop Dogg",
+        "price": "79.900",
+        "productSize": [
+            "S",
+            "M",
+            "L"
+        ]
+    },
+    {
+        "id": 2,
+        "image":"../../../assets/products-images/hombre/IMG_7406.jpg",
+        "name":"Juicy Biggie",
+        "category":"Hombre",
+        "description":"Camiseta oversize para hombre, 70% algodón 30% poliéster y producido en Colombia, diseño Juicy en representación del rapero estadounidense The Notorious B.I.G",
+        "price": "79.900",
+        "productSize": [
+            "S",
+            "M",
+            "L"
+        ]
+    },
+    {
+        "id": 3,
+        "image":"../../../assets/products-images/hombre/IMG_7529.jpg",
+        "name":"Tupac Shakur",
+        "category":"Hombre",
+        "description":"Camiseta oversize para hombre, 70% algodón 30% poliéster y producido en Colombia, diseño Tupac en representación del rapero estadounidense Tupac Shakur",
+        "price": "79.900",
+        "productSize": [
+            "S",
+            "M",
+            "L"
+        ]
+    },
+    {
+        "id": 4,
+        "image":"../../../assets/products-images/hombre/IMG_7556.jpg",
+        "name":"Hova JAY-Z",
+        "category":"Hombre",
+        "description":"Camiseta oversize para hombre, 100% algodón y producido en Colombia, diseño Hova en representación del rapero estadounidense JAY-Z",
+        "price": "79.900",
+        "productSize": [
+            "S",
+            "M",
+            "L"
+        ]
+    }
+]

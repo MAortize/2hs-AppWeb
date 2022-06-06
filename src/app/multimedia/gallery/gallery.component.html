@@ -1,0 +1,16 @@
+<div class="container animated fadeInRight">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        <div *ngFor="let info of infoCards" class="col">
+            <div class="card h-300" >
+                <img [src]="info.img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{info.title}}</h5>
+                    <h1 class="card-subtitle">{{info.subtitle}}</h1>
+                    <a [download]="info.title" [href]="info.img" class="btn btn-primary">Descargar</a>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

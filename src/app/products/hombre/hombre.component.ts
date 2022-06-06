@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/shared/services/products.service';
 import { DataTransferService } from '../../shared/services/data-transfer.service';
 
 @Component({
@@ -9,29 +10,20 @@ import { DataTransferService } from '../../shared/services/data-transfer.service
 export class HombreComponent implements OnInit {
 
   
-  infoCards:any[] = [
-    {
-      img: '../../../assets/products-images/hombre/IMG_7364.jpg',
-      title:'Long Beach - $79.000'
-    },
-    {
-      img: '../../../assets/products-images/hombre/IMG_7406.jpg',
-      title:'Juicy - $79.000'
-    },
-    {
-      img: '../../../assets/products-images/hombre/IMG_7529.jpg',
-      title:'Tupac - $79.000'
-    },
-    {
-      img: '../../../assets/products-images/hombre/IMG_7556.jpg',
-      title:'Hova - $79.000'
-    },
-    
-  ] 
+  
+  
+  @Input() product : any;
+  constructor(private transfer: DataTransferService, private productService: ProductsService) { }
 
-  constructor(private transfer: DataTransferService) { }
+  products : any = [];
 
   ngOnInit(): void {
+    this.productService.getProducts('products').subscribe((data: any)=> {
+      console.log(data)
+      this.products = data;
+    }, (err: any) => {
+      console.log(err)
+    })
   }
 
 

@@ -6,13 +6,17 @@ import { HombreComponent } from './hombre/hombre.component';
 import { MujerComponent } from './mujer/mujer.component';
 import { UnisexComponent } from './unisex/unisex.component';
 import { SharedModule } from '../shared/shared.module';
+import { ConfirmarHombreComponent } from './hombre/confirmar-hombre/confirmar-hombre.component';
+import { ModalPersonalizarComponent } from './hombre/confirmar-hombre/modal-personalizar/modal-personalizar/modal-personalizar.component';
 
 
 @NgModule({
   declarations: [
     HombreComponent,
     MujerComponent,
-    UnisexComponent
+    UnisexComponent,
+    ConfirmarHombreComponent,
+    ModalPersonalizarComponent
   ],
   imports: [
     CommonModule,

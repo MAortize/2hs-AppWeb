@@ -1,0 +1,21 @@
+<div class="product-view-container">
+    <div class="product-view-content">
+        <div class="image-section">
+            <img src="{{singleProduct?.image}}" alt="">
+        </div>
+        <div class="product-detail-section">
+            <p class="product-name">{{singleProduct?.name}}</p>
+            <p class="product-description">{{singleProduct?.description}}</p>
+            <p class="product-price">${{singleProduct?.price}}</p>
+            <select name="product-size">
+                <option selected disabled hidden value="">Seleccione una talla</option>
+                <option *ngFor="let item of singleProduct?.productSize" value="item">{{item}}</option>
+            </select>
+            <div class="btn-add-cart">Añadir al carrito</div>
+            <div (click)="openModal()" class="btn-custom">Personalizar</div>
+        </div>
+
+        
+    </div>
+</div>
+
